@@ -83,6 +83,11 @@ npm run dev
 ```
 ./vendor/bin/sail phpunit
 ```
+### 14) Очереди
+```
+./vendor/bin/sail php artisan queue:listen --queue=high,default
+или настройка через supervisor
+```
 
 WebServer: localhost  
 PhpMyAdmin: localhost:8080
@@ -155,4 +160,10 @@ npm run build
 ### 11) Тесты
 ```
 ./vendor/bin/sail phpunit
+```
+
+### 12) Очереди
+```
+./vendor/bin/sail php artisan queue:listen --queue=high,default
+или настройка через supervisor
 ```
