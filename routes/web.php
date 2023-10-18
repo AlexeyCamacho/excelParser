@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ExcelImportController;
+use App\Http\Controllers\ShowRowsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth.basic'])->group(function () {
+    Route::controller(ExcelImportController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::post('/importExcelFile', 'importFile');
+    });
 });
+
+Route::controller(ShowRowsController::class)->group(function () {
+    Route::get('/show', 'show');
+});
+
